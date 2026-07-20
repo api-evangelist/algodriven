@@ -1,0 +1,16 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/algodriven-vehicle-history-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: API key passed in the Authorization request header.
+  sources:
+  - openapi/algodriven-vehicle-history-openapi.yml
