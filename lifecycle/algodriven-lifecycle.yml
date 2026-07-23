@@ -1,0 +1,21 @@
+generated: '2026-07-17'
+method: derived
+source: >-
+  Derived from openapi/algodriven-vehicle-history-openapi.yml (URI-path version)
+  and searched https://algodriven.xyz/developers/
+versioning:
+  scheme: uri-path
+  current: v1
+  evidence: paths are served under /v1/ (e.g. /v1/generateGccHistoryReport)
+deprecation:
+  policy_url: null
+  sunset_header: null
+  notes: No published deprecation or Sunset/Deprecation-header policy found.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+deprecated_operations: []
+notes: >-
+  No public status page, SLA, or deprecation policy was found on algodriven.xyz
+  or the published developer surface as of the generated date.

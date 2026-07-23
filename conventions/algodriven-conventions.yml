@@ -1,0 +1,51 @@
+generated: '2026-07-17'
+method: searched
+source: >-
+  https://api.algodriven.xyz/ (public Postman collection "Vehicle History
+  Report - UAE") + derived from openapi/algodriven-vehicle-history-openapi.yml
+docs: https://algodriven.xyz/developers/
+summary: >-
+  AlgoDriven's Vehicle History Report API is a small, API-key-authenticated
+  REST surface with an asynchronous generate-then-poll retrieval pattern.
+authentication:
+  style: api-key
+  location: header
+  header: Authorization
+  notes: >-
+    The published collection states "Authentication is via API key." The key is
+    sent in the Authorization request header on every call.
+  cross_ref: authentication/algodriven-authentication.yml
+request:
+  content_type: multipart/form-data
+  notes: >-
+    Both documented operations accept multipart/form-data bodies
+    (generate takes `vin`, retrieve takes `reportId`).
+versioning:
+  scheme: uri-path
+  current: v1
+  example: https://algodriven.io/v1/generateGccHistoryReport
+  cross_ref: lifecycle/algodriven-lifecycle.yml
+async_pattern:
+  type: generate-then-poll
+  description: >-
+    Report generation is asynchronous. A generate call returns a report
+    identifier; the report is retrieved by polling retrieveGccHistoryReport
+    until a URL is returned.
+  recommended_poll_interval_seconds: 5
+  max_generation_seconds: 60
+  documented: true
+idempotency:
+  supported: false
+  notes: >-
+    No idempotency-key header or idempotent-retry contract is documented for
+    the published operations.
+pagination:
+  supported: false
+  notes: Single-resource generate/retrieve operations; no list endpoints published.
+rate_limiting:
+  documented: false
+error_envelope:
+  documented: false
+  notes: >-
+    The published collection documents no error response schema; only the
+    happy-path 200 responses are described.

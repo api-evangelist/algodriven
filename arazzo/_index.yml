@@ -1,0 +1,9 @@
+generated: '2026-07-17'
+method: derived
+workflows:
+  - file: algodriven-vehicle-history-report.yml
+    workflowId: generateAndRetrieveHistoryReport
+    title: Generate and retrieve a UAE vehicle history report
+    summary: >-
+      Generate a GCC/UAE vehicle history report for a VIN, then poll
+      retrieveGccHistoryReport until the PDF report URL is returned.

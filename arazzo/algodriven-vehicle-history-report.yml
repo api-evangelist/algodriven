@@ -1,0 +1,50 @@
+arazzo: 1.0.1
+info:
+  title: AlgoDriven — generate and retrieve a UAE vehicle history report
+  version: 1.0.0
+  description: >-
+    Generate a GCC/UAE vehicle history report for a VIN, then poll until the
+    PDF report URL is available.
+sourceDescriptions:
+  - name: vehicleHistory
+    url: ../openapi/algodriven-vehicle-history-openapi.yml
+    type: openapi
+workflows:
+  - workflowId: generateAndRetrieveHistoryReport
+    summary: Generate a vehicle history report and poll for the finished PDF.
+    description: >-
+      Calls generateGccHistoryReport with a VIN to obtain a reportId, then
+      polls retrieveGccHistoryReport (recommended every 5 seconds, up to ~60s)
+      until a report URL is returned.
+    inputs:
+      type: object
+      required:
+        - vin
+      properties:
+        vin:
+          type: string
+          description: 17-character vehicle identification number.
+          example: WBA3A5C50CF256789
+    steps:
+      - stepId: generateReport
+        description: Request generation of the history report for the VIN.
+        operationId: generateGccHistoryReport
+        requestBody:
+          contentType: multipart/form-data
+          payload:
+            vin: $inputs.vin
+        outputs:
+          reportId: $response.body#/reportId
+      - stepId: retrieveReport
+        description: >-
+          Retrieve the generated report by reportId. In practice poll this step
+          at five second intervals until a url is returned.
+        operationId: retrieveGccHistoryReport
+        requestBody:
+          contentType: multipart/form-data
+          payload:
+            reportId: $steps.generateReport.outputs.reportId
+        outputs:
+          url: $response.body#/url
+    outputs:
+      reportUrl: $steps.retrieveReport.outputs.url

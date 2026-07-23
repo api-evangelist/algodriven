@@ -1,0 +1,25 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/algodriven-vehicle-history-openapi.yml
+entities:
+  - name: Vehicle
+    identifier: vin
+    id_format: 17-character VIN (ISO 3779)
+    description: The vehicle a history report is generated for.
+  - name: HistoryReport
+    identifier: reportId
+    description: >-
+      A generated GCC/UAE vehicle history report (PDF). Produced asynchronously
+      from a VIN; retrieved by reportId once ready.
+    fields:
+      - reportId
+      - url
+relationships:
+  - from: HistoryReport
+    to: Vehicle
+    type: belongs_to
+    via: vin
+    evidence: generateGccHistoryReport takes a vin and yields a reportId
+notes: >-
+  Minimal two-entity model derived from the two published operations
+  (generateGccHistoryReport -> reportId; retrieveGccHistoryReport(reportId) -> url).

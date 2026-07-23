@@ -1,0 +1,14 @@
+{
+  "provider": "algodriven",
+  "sources": [
+    "algodriven-vehicle-history-report-api-openapi.yml"
+  ],
+  "outputs": [
+    "algodriven-vehicle-history-report-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

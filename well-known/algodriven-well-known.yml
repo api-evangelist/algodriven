@@ -1,0 +1,38 @@
+generated: '2026-07-17'
+method: searched
+source: live probes of /.well-known/ on AlgoDriven hosts
+hosts:
+  - host: https://algodriven.xyz
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://dashboard.algodriven.co
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        genuine: false
+        note: >-
+          Returns the dashboard single-page-app index.html (catch-all route),
+          not a genuine OIDC discovery document. Not saved.
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        genuine: false
+        note: SPA catch-all HTML, not a genuine RFC 8414 document. Not saved.
+      - path: /.well-known/api-catalog
+        status: 200
+        genuine: false
+        note: SPA catch-all HTML, not a genuine RFC 9727 api-catalog. Not saved.
+      - path: /.well-known/security.txt
+        status: 404
+notes: >-
+  No genuine /.well-known/ discovery documents were found. The 200s on
+  dashboard.algodriven.co are the admin SPA's index.html served for unknown
+  routes, so no WellKnown/SecurityTxt canonical pointer is emitted.

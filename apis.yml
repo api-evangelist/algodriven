@@ -1,7 +1,16 @@
 aid: algodriven
 name: AlgoDriven
-description: AlgoDriven is a company surfaced as a portfolio company of 500-global and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  AlgoDriven is an automotive AI company that helps car dealerships, banks,
+  insurers, fleet operators, marketplaces, and OEMs appraise, inspect, and price
+  used vehicles using proprietary data-driven applications. Its products include
+  EvalExpert (automated car valuation and price guide built on millions of data
+  points), DriveExpert (test-drive, loan-car, and staff-car management with
+  analytics), and InspectExpert (customised vehicle inspection software), backed
+  by developer APIs for vehicle search and data, valuations, specifications, and
+  vehicle history reports. Founded in 2017 and expanded across the MENA region,
+  New Zealand, and beyond, AlgoDriven runs offices in Australia, the UAE, and
+  Egypt, and is a portfolio company of 500 Global.
 url: https://raw.githubusercontent.com/api-evangelist/algodriven/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,17 +18,96 @@ x-backed-by:
 - 500-global
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://algodriven.xyz/wp-content/uploads/2022/04/cropped-algodriven-favicon-192x192.png
 specificationVersion: '0.20'
 created: '2026-07-17'
 modified: '2026-07-17'
 tags:
 - Company
-apis: []
+- Automotive
+- Vehicle Data
+- Car Valuation
+- Vehicle Inspection
+- Artificial Intelligence
+- Vehicle History
+- Automotive Data Intelligence
+apis:
+- aid: algodriven:algodriven-vehicle-history-report-api
+  name: AlgoDriven Vehicle History Report API
+  description: Generate and retrieve GCC/UAE vehicle history reports as PDF.
+  humanURL: https://algodriven.xyz/developers/
+  baseURL: https://algodriven.io/v1
+  tags:
+  - Vehicle History Report
+  properties:
+  - type: OpenAPI
+    url: openapi/algodriven-vehicle-history-report-api-openapi.yml
+  - type: Postman
+    url: https://api.algodriven.xyz/
+  - type: PostmanCollection
+    url: openapi/algodriven-vehicle-history-postman.json
+  - type: Arazzo
+    url: arazzo/algodriven-vehicle-history-report.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/algodriven-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/algodriven-agentic-access.yml
+- type: Authentication
+  url: authentication/algodriven-authentication.yml
+- type: Conventions
+  url: conventions/algodriven-conventions.yml
+- type: Lifecycle
+  url: lifecycle/algodriven-lifecycle.yml
+- type: Conformance
+  url: conformance/algodriven-conformance.yml
+- type: DataModel
+  url: data-model/algodriven-data-model.yml
+- type: MCPServer
+  url: mcp/algodriven-mcp.yml
+- type: LLMsTxt
+  url: llms/algodriven-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Postman
+  url: https://api.algodriven.xyz/
+- type: DeveloperPortal
+  url: https://algodriven.xyz/developers/
+- type: Documentation
+  url: https://algodriven.xyz/developers/
+- type: APIReference
+  url: https://api.algodriven.xyz/
+- type: Blog
+  url: https://algodriven.xyz/resources/
+- type: Support
+  url: https://algodriven.xyz/contact-us/
+- type: Login
+  url: https://dashboard.algodriven.co
+- type: PrivacyPolicy
+  url: https://algodriven.xyz/privacy-policy/
+- type: GitHubOrganization
+  url: https://github.com/algodriven
 - type: Website
   url: https://algodriven.xyz
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

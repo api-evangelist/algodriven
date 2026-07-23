@@ -1,0 +1,9 @@
+generated: '2026-07-17'
+method: generated
+skills:
+  - file: algodriven-generate-vehicle-history-report.md
+    name: Generate and retrieve a UAE vehicle history report
+    api: openapi/algodriven-vehicle-history-openapi.yml
+    operations:
+      - generateGccHistoryReport
+      - retrieveGccHistoryReport

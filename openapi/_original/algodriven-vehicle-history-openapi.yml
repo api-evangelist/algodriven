@@ -1,0 +1,135 @@
+openapi: 3.0.3
+info:
+  title: AlgoDriven Vehicle History Report - UAE
+  version: v1
+  description: >-
+    The Vehicle History Report - UAE API generates and retrieves vehicle history
+    reports, in PDF format, for vehicles in the United Arab Emirates (GCC). The
+    API works in two parts: generating the PDF report and retrieving it.
+    Generation may take up to sixty seconds, so the provider recommends polling
+    the retrieval endpoint at five second intervals until a report URL is
+    returned successfully. Authentication is via API key.
+  contact:
+    name: AlgoDriven Support
+    email: support@algodriven.xyz
+    url: https://algodriven.xyz/contact-us/
+  x-apis-json:
+    provenance:
+      generated: '2026-07-17'
+      method: searched
+      source: >-
+        https://documenter.gw.postman.com/api/collections/view/Tzedg4A5
+        (AlgoDriven public Postman collection "Vehicle History Report - UAE",
+        published at https://api.algodriven.xyz/)
+servers:
+  - url: https://algodriven.io
+    description: Production API host (per published Postman collection)
+security:
+  - ApiKeyAuth: []
+tags:
+  - name: Vehicle History Report
+    description: Generate and retrieve GCC/UAE vehicle history reports as PDF.
+paths:
+  /v1/generateGccHistoryReport:
+    post:
+      operationId: generateGccHistoryReport
+      tags:
+        - Vehicle History Report
+      summary: Generate History Report
+      description: >-
+        Generate a GCC/UAE vehicle history report (PDF) for a given VIN.
+        Generation is asynchronous and may take up to sixty seconds; the
+        response returns a report identifier that is later passed to
+        retrieveGccHistoryReport. Poll the retrieval endpoint at five second
+        intervals until a report URL is returned.
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - vin
+              properties:
+                vin:
+                  type: string
+                  description: >-
+                    Required. Seventeen character vehicle identification number
+                    (VIN) of the vehicle to report on.
+                  minLength: 17
+                  maxLength: 17
+                  example: WBA3A5C50CF256789
+      responses:
+        '200':
+          description: Report generation accepted; a report identifier is returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateResponse'
+  /v1/retrieveGccHistoryReport:
+    post:
+      operationId: retrieveGccHistoryReport
+      tags:
+        - Vehicle History Report
+      summary: Retrieve History Report
+      description: >-
+        Retrieve a previously generated GCC/UAE vehicle history report using the
+        report identifier returned by generateGccHistoryReport. Because
+        generation may take up to sixty seconds, poll this endpoint at five
+        second intervals until a report URL is returned successfully.
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - reportId
+              properties:
+                reportId:
+                  type: string
+                  description: >-
+                    Required. The unique report ID generated from the
+                    generateGccHistoryReport endpoint.
+      responses:
+        '200':
+          description: >-
+            The report status, and when ready a URL to the generated PDF report.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetrieveResponse'
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: API key passed in the Authorization request header.
+  schemas:
+    GenerateResponse:
+      type: object
+      description: Response to a report generation request.
+      properties:
+        reportId:
+          type: string
+          description: >-
+            Unique identifier of the report being generated, to be passed to
+            retrieveGccHistoryReport.
+    RetrieveResponse:
+      type: object
+      description: Response to a report retrieval request.
+      properties:
+        reportId:
+          type: string
+          description: Unique identifier of the report.
+        url:
+          type: string
+          format: uri
+          description: >-
+            URL of the generated PDF report, returned once generation has
+            completed successfully.

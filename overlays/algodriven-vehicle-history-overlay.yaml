@@ -1,0 +1,21 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for AlgoDriven Vehicle History Report - UAE
+  version: 1.0.0
+extends: openapi/algodriven-vehicle-history-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-source: >-
+        https://api.algodriven.xyz/ (public Postman collection "Vehicle History
+        Report - UAE", published via Postman documenter Tzedg4A5)
+      x-apievangelist-async-pattern: generate-then-poll (poll retrieve every 5s, up to 60s)
+  - target: $.paths['/v1/generateGccHistoryReport'].post
+    update:
+      x-apievangelist-note: >-
+        Asynchronous. Returns a reportId; the report is produced within ~60s and
+        fetched via retrieveGccHistoryReport.
+  - target: $.paths['/v1/retrieveGccHistoryReport'].post
+    update:
+      x-apievangelist-note: >-
+        Poll at five second intervals until a report URL is returned successfully.

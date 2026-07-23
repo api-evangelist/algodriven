@@ -1,0 +1,23 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/algodriven-vehicle-history-openapi.yml
+standards:
+  - id: oauth2
+    conforms: false
+    evidence: securityScheme is apiKey (Authorization header), not oauth2
+  - id: oidc
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: no application/problem+json error responses documented
+  - id: json-api
+    conforms: false
+  - id: rest
+    conforms: true
+    evidence: HTTP POST operations over versioned resource paths
+  - id: openapi-3
+    conforms: true
+    evidence: API Evangelist maintains an OpenAPI 3.0.3 description of the surface
+notes: >-
+  No published compliance certifications (SOC 2, ISO 27001, PCI DSS, HIPAA,
+  FedRAMP) were found; no Compliance pointer is emitted.
