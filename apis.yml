@@ -66,6 +66,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/algodriven-vehicle-history-overlay.yaml
 - type: DomainSecurity
   url: security/algodriven-domain-security.yml
 - type: AgenticAccess
