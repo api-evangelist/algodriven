@@ -6,21 +6,24 @@ server:
   name: algodriven-vehicle-history
   transport: http
   url: null
-  notes: >-
-    No official AlgoDriven MCP server was found. This is a candidate tool list
-    derived from the published OpenAPI operations, one tool per operationId.
+  notes: No official AlgoDriven MCP server was found. This is a candidate tool list derived from the published
+    OpenAPI operations, one tool per operationId.
 auth:
   type: apiKey
   location: header
   header: Authorization
 tools:
-  - name: generate_gcc_history_report
-    description: >-
-      Generate a GCC/UAE vehicle history report (PDF) for a VIN. Returns a
-      report identifier to poll for retrieval.
-    source_operation: openapi/algodriven-vehicle-history-openapi.yml#generateGccHistoryReport
-  - name: retrieve_gcc_history_report
-    description: >-
-      Retrieve a generated vehicle history report by reportId; poll at five
-      second intervals until a report URL is returned.
-    source_operation: openapi/algodriven-vehicle-history-openapi.yml#retrieveGccHistoryReport
+- name: generate_gcc_history_report
+  description: Generate a GCC/UAE vehicle history report (PDF) for a VIN. Returns a report identifier
+    to poll for retrieval.
+  source_operation: openapi/algodriven-vehicle-history-openapi.yml#generateGccHistoryReport
+- name: retrieve_gcc_history_report
+  description: Retrieve a generated vehicle history report by reportId; poll at five second intervals
+    until a report URL is returned.
+  source_operation: openapi/algodriven-vehicle-history-openapi.yml#retrieveGccHistoryReport
+deployment:
+  mode: none
+  verified: derived
+  tools: 2
+  checked: '2026-08-12'
+  source: catalog MCP census

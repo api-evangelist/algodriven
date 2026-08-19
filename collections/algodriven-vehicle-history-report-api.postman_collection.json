@@ -1,0 +1,297 @@
+{
+  "item": [
+    {
+      "id": "a64058f3-d34c-4e16-bff0-c4d5bcf20551",
+      "name": "Vehicle History Report",
+      "description": {
+        "content": "Generate and retrieve GCC/UAE vehicle history reports as PDF.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a89394fe-e923-44d6-89b7-86e145ad4831",
+          "name": "Generate History Report",
+          "request": {
+            "name": "Generate History Report",
+            "description": {
+              "content": "Generate a GCC/UAE vehicle history report (PDF) for a given VIN. Generation is asynchronous and may take up to sixty seconds; the response returns a report identifier that is later passed to retrieveGccHistoryReport. Poll the retrieval endpoint at five second intervals until a report URL is returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "generateGccHistoryReport"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "vin",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) Required. Seventeen character vehicle identification number (VIN) of the vehicle to report on."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "aa84a815-90b5-4ade-91de-d045f99e6448",
+              "name": "Report generation accepted; a report identifier is returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "generateGccHistoryReport"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) Required. Seventeen character vehicle identification number (VIN) of the vehicle to report on.",
+                        "type": "text/plain"
+                      },
+                      "key": "vin",
+                      "value": "WBA3A5C50CF256789",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reportId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "837d65b2-5a66-411a-a5f0-68ad525c547c",
+          "name": "Retrieve History Report",
+          "request": {
+            "name": "Retrieve History Report",
+            "description": {
+              "content": "Retrieve a previously generated GCC/UAE vehicle history report using the report identifier returned by generateGccHistoryReport. Because generation may take up to sixty seconds, poll this endpoint at five second intervals until a report URL is returned successfully.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "retrieveGccHistoryReport"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "reportId",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) Required. The unique report ID generated from the generateGccHistoryReport endpoint."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "aab21cc1-4fe8-47e9-bd95-313eb5bd882d",
+              "name": "The report status, and when ready a URL to the generated PDF report.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "retrieveGccHistoryReport"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) Required. The unique report ID generated from the generateGccHistoryReport endpoint.",
+                        "type": "text/plain"
+                      },
+                      "key": "reportId",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reportId\": \"string\",\n  \"url\": \"https://hkloQuLH.fvb0uXX.HHgVHNHb0dI7rYj0UhjsWysm9CC1wsDLDUa6AcP+\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://algodriven.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d038f68a-1591-4d43-9dfd-69bbff2925eb",
+    "name": "AlgoDriven - UAE Vehicle History Report API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Vehicle History Report - UAE API generates and retrieves vehicle history reports, in PDF format, for vehicles in the United Arab Emirates (GCC). The API works in two parts: generating the PDF report and retrieving it. Generation may take up to sixty seconds, so the provider recommends polling the retrieval endpoint at five second intervals until a report URL is returned successfully. Authentication is via API key.\n\nContact Support:\n Name: AlgoDriven Support\n Email: support@algodriven.xyz",
+      "type": "text/plain"
+    }
+  }
+}

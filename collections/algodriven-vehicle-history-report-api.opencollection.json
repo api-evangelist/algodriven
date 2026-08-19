@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AlgoDriven - UAE Vehicle History Report API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vehicle History Report",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate History Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://algodriven.io/v1/generateGccHistoryReport",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "vin",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Generate a GCC/UAE vehicle history report (PDF) for a given VIN. Generation is asynchronous and may take up to sixty seconds; the response returns a report identifier that is later passed to retrieveGccHistoryReport. Poll the retrieval endpoint at five second intervals until a report URL is returned."
+        },
+        {
+          "info": {
+            "name": "Retrieve History Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://algodriven.io/v1/retrieveGccHistoryReport",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "reportId",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve a previously generated GCC/UAE vehicle history report using the report identifier returned by generateGccHistoryReport. Because generation may take up to sixty seconds, poll this endpoint at five second intervals until a report URL is returned successfully."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
