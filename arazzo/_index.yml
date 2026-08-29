@@ -1,5 +1,5 @@
-generated: '2026-07-17'
-method: derived
+x-generated: '2026-07-17'
+x-method: derived
 workflows:
   - file: algodriven-vehicle-history-report.yml
     workflowId: generateAndRetrieveHistoryReport
