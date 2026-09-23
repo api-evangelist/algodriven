@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: AlgoDriven - UAE Vehicle History Report API
   version: v1
@@ -82,13 +82,6 @@ paths:
                 $ref: '#/components/schemas/RetrieveResponse'
 components:
   schemas:
-    GenerateResponse:
-      type: object
-      description: Response to a report generation request.
-      properties:
-        reportId:
-          type: string
-          description: Unique identifier of the report being generated, to be passed to retrieveGccHistoryReport.
     RetrieveResponse:
       type: object
       description: Response to a report retrieval request.
@@ -100,6 +93,13 @@ components:
           type: string
           format: uri
           description: URL of the generated PDF report, returned once generation has completed successfully.
+    GenerateResponse:
+      type: object
+      description: Response to a report generation request.
+      properties:
+        reportId:
+          type: string
+          description: Unique identifier of the report being generated, to be passed to retrieveGccHistoryReport.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
