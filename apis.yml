@@ -82,6 +82,10 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Pricing
+  url: https://algodriven.xyz/insights/
+- type: Plans
+  url: plans/algodriven-plans-pricing.yml
 - url: https://algodriven.xyz/insights/
   type: Blog
 - url: https://algodriven.xyz/feed.xml
