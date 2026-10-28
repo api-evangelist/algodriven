@@ -64,6 +64,128 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-AlgoDriven is a company surfaced as a portfolio company of 500-global and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+AlgoDriven is an automotive AI company that helps car dealerships, banks, insurers, fleet operators, marketplaces, and OEMs appraise, inspect, and price used vehicles using proprietary data-driven applications. Its products include EvalExpert (automated car valuation and price guide built on millions of data points), DriveExpert (test-drive, loan-car, and staff-car management with analytics), and InspectExpert (customised vehicle inspection software), backed by developer APIs for vehicle search and data, valuations, specifications, and vehicle history reports. Founded in 2017 and expanded across the MENA region, New Zealand, and beyond, AlgoDriven runs offices in Australia, the UAE, and Egypt, and is a portfolio company of 500 Global.
 
-Backed by: 500-global — https://algodriven.xyz
+**Areas:** Company · Automotive · Vehicle Data · Car Valuation · Vehicle Inspection · Artificial Intelligence · Vehicle History · Automotive Data Intelligence
+
+## AlgoDriven on APIs.io
+
+Everything profiled for AlgoDriven is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/algodriven/](https://apis.io/providers/algodriven/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [AlgoDriven Vehicle History Report API](https://apis.io/apis/algodriven/algodriven-vehicle-history-report-api/) — Generate and retrieve GCC/UAE vehicle history reports as PDF.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Arazzo workflows (1)
+
+Multi-step workflows that chain operations into a business task.
+
+- [AlgoDriven — generate and retrieve a UAE vehicle history report](https://apis.io/arazzos/algodriven/algodriven-vehicle-history-report/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [algodriven-vehicle-history](https://apis.io/servers/algodriven/algodriven-vehicle-history/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Algodriven Agentic Access](https://apis.io/agentic-access/algodriven/algodriven-agentic-access/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [API Collection](https://apis.io/collections/algodriven/open-algodriven-vehicle-history-postman/)
+- [AlgoDriven - UAE Vehicle History Report API](https://apis.io/collections/algodriven/open-algodriven-vehicle-history-report-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Algodriven Vehicle History Overlay](https://apis.io/overlays/algodriven/algodriven-vehicle-history-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Algodriven Authentication](https://apis.io/security/algodriven/algodriven-authentication/)
+- [Algodriven Domain Security](https://apis.io/security/algodriven/algodriven-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Algodriven Plans Pricing](https://apis.io/plans/algodriven/algodriven-plans-pricing/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://algodriven.xyz)
+- [Documentation](https://algodriven.xyz/developers/)
+- [API reference](https://api.algodriven.xyz/)
+- [Pricing](https://algodriven.xyz/insights/)
+- [Support](https://algodriven.xyz/contact-us/)
+- [Blog](https://algodriven.xyz/insights/)
+- [Privacy policy](https://algodriven.xyz/privacy-policy/)
+- [GitHub](https://github.com/algodriven)
+
+## API Evangelist rating
+
+**Kin Score 36.2** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 49.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 51.8 |
+| Access clarity | 27.6 |
+
+**Agent readiness 23.2** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 19.1** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/algodriven/](https://apis.io/providers/algodriven/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for AlgoDriven: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/algodriven/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
